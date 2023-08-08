@@ -1,0 +1,163 @@
+@font-face {
+    font-family: "Inter";
+    src: url("fonts/Inter-VariableFont_slnt\,wght.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: "Inter";
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .produto {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    width: 240px;
+    border: 1px solid;
+    height: 490px;
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  .App {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .btn-adicionar {
+    background-color: #40b25c;
+    color: #fff;
+    border: none;
+    padding: 16px 24px 12px 24px;
+    justify-content: center;
+    text-transform: uppercase;
+    width: 240px;
+    height: 48px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    border-radius: 8px;
+    flex-direction: row-reverse;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+  }
+  
+  .btn-adicionar:hover {
+    background-color: #1e9631;
+  }
+  
+  .btn-adicionar.clicked {
+    background-color: #a3f9b9;
+    color: #1c1c1c;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+  }
+  
+  .btn-adicionar.clicked::after {
+    content: url(/images/Vector.png);
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin-right: 10px;
+  }
+  
+  .titulo-produto {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1c;
+    line-height: 20px;
+  }
+  
+  .preco-de {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    margin: 0px 0px 5px;
+    text-align: left;
+    color: #999a9b;
+    text-decoration: line-through;
+  }
+  
+  .preco-por {
+    color: #f3151b;
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.005em;
+    text-align: left;
+  }
+  
+  .parcelamento {
+    color: #737375;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -0.005em;
+    text-align: left;
+  }
+  
+  .valor-parcelamento {
+    color: #1C1C1C;
+  }
+  
+  .icone-wishlist {
+    position: absolute;
+    top: 35px;
+    right: 30px;
+    bottom: 0;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+  }
+  
+  .icone-wishlist:hover {
+    content: url('images/wishlist-hover.png');
+  }
+  
+  .icone-wishlist.selected {
+    content: url('images/wishlist-selected.png');
+  }
+    
+  .popup-confirmacao p {
+    font-size: 15px;
+    color: #1C1C1C;
+    line-height: 10px;
+  }
+  
+  .popup-confirmacao {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    height: 40px;
+    width: 220px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 999;
+  }
+  
+  .popup-confirmacao.show {
+    display: block;
+  }
+  
