@@ -26,6 +26,33 @@ const produtos = [
 const appDiv = document.querySelector(".App");
 const favoritos = {};
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+
+function setCookie(name, value, days) {
+  const expiration = new Date();
+  expiration.setTime(expiration.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value}; expires=${expiration.toUTCString()}; path=/`;
+}
+
+
+function carregarFavoritos() {
+  const favoritosSalvos = getCookie("favoritos");
+  if (favoritosSalvos) {
+    Object.assign(favoritos, JSON.parse(favoritosSalvos));
+  }
+}
+
+function salvarFavoritos() {
+  setCookie("favoritos", JSON.stringify(favoritos), 30);
+}
+
+carregarFavoritos();
+
 function formatarValor(valor) {
   return valor
     .toFixed(2)
@@ -52,9 +79,11 @@ produtos.forEach((produto, index) => {
       popupConfirmacao.classList.remove("show");
       favoritos[index] = false;
     }
-    
+
+    salvarFavoritos();
+
     setTimeout(() => {
-        popupConfirmacao.classList.remove("show");
+      popupConfirmacao.classList.remove("show");
     }, 2000);
   });
 
@@ -64,7 +93,7 @@ produtos.forEach((produto, index) => {
   const textoConfirmacao = document.createElement("p");
   textoConfirmacao.textContent = "Produto adicionado à Wishlist";
   popupConfirmacao.appendChild(textoConfirmacao);
-  
+
   produtoDiv.appendChild(popupConfirmacao);
   produtoDiv.appendChild(iconeWishlist);
 
@@ -128,5 +157,7 @@ produtos.forEach((produto, index) => {
       botaoAdicionar.textContent = "Adicionar";
       favoritos[productId] = false;
     }
+
+    salvarFavoritos();
   });
 });
